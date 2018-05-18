@@ -23,8 +23,8 @@
   {{ if gt $num_pages 0 }}
   {{ $column_size :=  (div $num_pages 3) | math.Ceil | int | default 1 }}
   {{  range $i, $e := $pages.ByWeight }}
-    {{ $offset := mod $i $column_size |  add 1 }}
-    {{ if eq $offset 1 }}
+    {{ $offset := mod $i $column_size }}
+    {{ if eq $offset 0 }}
       <div class="browsecolumn">
     {{ end }}
     <a href="{{ .RelPermalink }}">{{ printf "%02d - %s" (add $i 1) .LinkTitle }}</a><br>
