@@ -19,12 +19,13 @@
   {{ $pages := where $pages ".Params.toc_hide" "!=" true }}
   {{ if ge (len $pages) 1 }}
   <div class="pages">
-  {{ $num_pages := len $pages }}
+  {{ $num_pages := len $pages }} <!-- num_pages = {{ printf "%d" $num_pages }} -->
   {{ if gt $num_pages 0 }}
-  {{ $column_size :=  (div $num_pages 3) | math.Ceil | int | default 1 }}
+  {{ $column_size :=  (div $num_pages 3) | math.Ceil | int | default 1 }} <!-- column_size = {{ printf "%d" $column_size }} -->
+  <!-- pages.ByWeight = {{ printf "%d" $pages.ByWeight }} -->
   {{  range $i, $e := $pages.ByWeight }}
-    {{ $offset := mod $i $column_size }}
-    {{ if eq $offset 0 }}
+    {{ $offset := mod $i $column_size |  add 1 }} <!-- offset = {{ printf "%d" $offset }} -->
+    {{ if eq $offset 1 }}
       <div class="browsecolumn">
     {{ end }}
     <a href="{{ .RelPermalink }}">{{ printf "%02d - %s" (add $i 1) .LinkTitle }}</a><br>
