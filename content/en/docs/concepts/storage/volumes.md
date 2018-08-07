@@ -1120,17 +1120,17 @@ specification, and to select the type of media to use, for clusters that have
 several media types.
 
 ## Out-of-Tree Volume Plugins
-The Out-of-tree volume plugins include the Container Storage Interface (`CSI`)
-and `Flexvolume`. They enable storage vendors to create custom storage plugins
+The Out-of-tree volume plugins include the Container Storage Interface (CSI)
+and Flexvolume. They enable storage vendors to create custom storage plugins
 without adding them to the Kubernetes repository. 
 
-Before the introduction of `CSI` and `Flexvolume`, all volume plugins (like
+Before the introduction of CSI and Flexvolume, all volume plugins (like
 volume types listed above) were "in-tree" meaning they were built, linked,
 compiled, and shipped with the core Kubernetes binaries and extend the core
 Kubernetes API. This meant that adding a new storage system to Kubernetes (a
 volume plugin) required checking code into the core Kubernetes code repository.
 
-Both `CSI` and `Flexvolume` allow volume plugins to be developed independent of
+Both CSI and Flexvolume allow volume plugins to be developed independent of
 the Kubernetes code base, and deployed (installed) on Kubernetes clusters as
 extensions.
 
@@ -1226,12 +1226,12 @@ Learn how to
 
 ### Flexvolume
 
-`Flexvolume` is an out-of-tree plugin interface that has existed in Kubernetes
+Flexvolume is an out-of-tree plugin interface that has existed in Kubernetes
 since version 1.2 (before CSI). It uses an exec-based model to interface with
 drivers. Flexvolume driver binaries must be installed in a pre-defined volume
 plugin path on each node (and in some cases master).
 
-Pods interact with Flexvolume drivers through the `flexvolume` in-tree plugin.
+Pods interact with Flexvolume drivers through the `flexVolume` in-tree plugin.
 More details can be found [here](https://github.com/kubernetes/community/blob/master/contributors/devel/flexvolume.md).
 
 ## Mount propagation
